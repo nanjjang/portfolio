@@ -4,11 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>윤준서 — Portfolio</title>
-<meta name="description" content="윤준서의 포트폴리오. 만든 것들과 쓰는 도구들." />
+<meta name="description" content="윤준서 — 선린인터넷고 서버·백엔드 동아리 AnA. FastAPI 서버, Svelte 웹, Swift 앱을 만들고 직접 띄운 서버에서 운영합니다." />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="윤준서 — Portfolio" />
-<meta property="og:description" content="윤준서의 포트폴리오. 만든 것들과 쓰는 도구들." />
+<meta property="og:url" content="https://yoonjunseo.com" />
+<meta property="og:description" content="윤준서 — 선린인터넷고 서버·백엔드 동아리 AnA. FastAPI 서버, Svelte 웹, Swift 앱을 만들고 직접 띄운 서버에서 운영합니다." />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +44,6 @@
 
 <main>
   <!-- ════════ HERO ════════ -->
-  <!-- ✏️ 이름 / 한 줄 카피 / 소개 / 숫자 3개를 본인 것으로 바꾸세요 -->
   <section id="top" class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-grid" aria-hidden="true"></div>
@@ -63,19 +63,20 @@
       <div class="hero-bottom cols">
         <p class="hero-bio reveal">
           윤준서 — 선린인터넷고 서버·백엔드 전공동아리 AnA. Unity로 개발을 시작해
-          지금은 FastAPI와 Next.js로 서비스를 만듭니다. 코드보다 설계 문서를 먼저 쓰는 편입니다.
+          지금은 FastAPI 서버와 Svelte 웹, Swift 앱을 만듭니다. 작게 시작해서
+          실제로 굴러가는 결과물을 만드는 걸 좋아합니다.
         </p>
         <div class="stats reveal">
           <div class="stat">
-            <span class="stat-num">23</span>
+            <span class="stat-num">27</span>
             <span class="stat-label">public<br />repositories</span>
           </div>
           <div class="stat">
-            <span class="stat-num">6</span>
-            <span class="stat-label">featured<br />projects</span>
+            <span class="stat-num">3</span>
+            <span class="stat-label">live services<br />운영 중</span>
           </div>
           <div class="stat">
-            <span class="stat-num">5</span>
+            <span class="stat-num">4</span>
             <span class="stat-label">languages<br />in use</span>
           </div>
         </div>
@@ -114,22 +115,31 @@
 
       <div class="about-right">
         <span class="kicker">02 — about</span>
-        <!-- ✏️ 문장은 자유롭게 다듬으세요 -->
         <p class="lead reveal">
-          만들고 싶은 걸 먼저 문서로 적고, 범위를 정한 다음 코드를 씁니다.
-          끝내지 못한 프로젝트보다 작더라도 돌아가는 쪽이 낫다고 생각합니다.
+          필요한 기능은 직접 만들어보면서 공부합니다. 만들고 싶은 걸 먼저 문서로 적고,
+          범위를 정한 다음 코드를 씁니다.
         </p>
         <p class="body">
-          Unity로 게임을 만들며 개발을 시작했고, pygame을 거쳐 지금은 웹 풀스택을 주로 합니다.
-          FastAPI · Flask로 서버를 짜고 Next.js · SvelteKit으로 화면을 붙입니다. 최근에는 SwiftUI로
-          같은 서비스를 앱으로도 만들어 보는 중입니다.
+          Unity로 게임을 만들며 개발을 시작했고, pygame을 거쳐 지금은 백엔드와 서버 운영 쪽을
+          주로 봅니다. FastAPI로 API를 짜고 Svelte · Next.js로 화면을 붙이며, 최근에는 React Native와
+          SwiftUI로 앱도 만들고 있습니다. 블로그는 남의 플랫폼에 맡기지 않고 맥미니에 직접 띄워
+          Docker · Caddy · Cloudflare 터널로 운영합니다. building, breaking, fixing, learning.
         </p>
 
         <div class="timeline">
-          <!-- ✏️ 학년·수상 등 추가할 게 있으면 <div class="tl-row"> 를 복사하세요 -->
+          <div class="tl-row">
+            <span class="tl-years">2026.08 — now</span>
+            <span class="tl-role">자체 서버 구축 · devlog 운영</span>
+            <span class="tl-org">개인</span>
+          </div>
+          <div class="tl-row">
+            <span class="tl-years">2026.05 — 2026.07</span>
+            <span class="tl-role">엔지니어링산업대회 설계부문 — ICE-ZERO</span>
+            <span class="tl-org">팀 프로젝트</span>
+          </div>
           <div class="tl-row">
             <span class="tl-years">2026 — now</span>
-            <span class="tl-role">웹 풀스택 · iOS 프로젝트</span>
+            <span class="tl-role">웹 풀스택 · 모바일 앱 프로젝트</span>
             <span class="tl-org">개인 &amp; 팀</span>
           </div>
           <div class="tl-row">
@@ -148,7 +158,6 @@
   </section>
 
   <!-- ════════ STACK ════════ -->
-  <!-- ✏️ 쓰는 것만 남기고 <li>를 지우거나 추가하세요 -->
   <section id="stack" class="section">
     <div class="wrap stack-wrap">
       <div class="sec-title">
@@ -166,30 +175,30 @@
           </ul>
         </div>
         <div class="stack-card reveal">
-          <span class="stack-group">Backend</span>
+          <span class="stack-group">Backend &amp; Data</span>
           <ul>
-            <li>FastAPI</li>
-            <li>Flask</li>
-            <li>SQLAlchemy · SQLite</li>
-            <li>REST API</li>
+            <li>FastAPI · Flask</li>
+            <li>Astro (SSR)</li>
+            <li>SQLite · SQLAlchemy</li>
+            <li>XGBoost · pandas</li>
           </ul>
         </div>
         <div class="stack-card reveal">
-          <span class="stack-group">Frontend</span>
+          <span class="stack-group">Frontend &amp; App</span>
           <ul>
+            <li>Svelte · SvelteKit</li>
             <li>Next.js · React</li>
-            <li>SvelteKit</li>
-            <li>Tailwind CSS</li>
-            <li>Firebase Auth</li>
+            <li>React Native (Expo)</li>
+            <li>SwiftUI</li>
           </ul>
         </div>
         <div class="stack-card reveal">
-          <span class="stack-group">Game &amp; Tools</span>
+          <span class="stack-group">Infra &amp; Game</span>
           <ul>
-            <li>Unity</li>
-            <li>Pygame</li>
-            <li>Playwright</li>
-            <li>Git · Xcode · Vercel</li>
+            <li>Docker · Caddy</li>
+            <li>Cloudflare Tunnel</li>
+            <li>Unity · Pygame</li>
+            <li>Git · Vercel · Xcode</li>
           </ul>
         </div>
       </div>
@@ -199,8 +208,8 @@
   <!-- ════════ 흐르는 띠 ════════ -->
   <div class="marquee">
     <div class="marquee-track">
-      <span>backend · fullstack · game</span><span class="mq-dot">◆</span><span>seoul, kr</span><span class="mq-dot">◆</span><span>github.com/nanjjang</span><span class="mq-dot">◆</span>
-      <span>backend · fullstack · game</span><span class="mq-dot">◆</span><span>seoul, kr</span><span class="mq-dot">◆</span><span>github.com/nanjjang</span><span class="mq-dot">◆</span>
+      <span>backend · web · app · automation</span><span class="mq-dot">◆</span><span>seoul, kr</span><span class="mq-dot">◆</span><span>devlog.yoonjunseo.com</span><span class="mq-dot">◆</span>
+      <span>backend · web · app · automation</span><span class="mq-dot">◆</span><span>seoul, kr</span><span class="mq-dot">◆</span><span>devlog.yoonjunseo.com</span><span class="mq-dot">◆</span>
     </div>
   </div>
 </main>
@@ -217,7 +226,6 @@
           loveyjs0420@gmail.com <span class="arrow">↗</span>
         </a>
 
-        <!-- ✏️ 아이콘 링크 — href를 본인 계정으로. 안 쓰는 건 <a> 통째로 삭제 -->
         <nav class="icon-links" aria-label="소셜 링크">
           <a href="https://github.com/nanjjang" target="_blank" rel="noopener noreferrer" data-label="GitHub" aria-label="GitHub">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12.01 12.01 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg>
@@ -228,19 +236,17 @@
           <a href="mailto:loveyjs0420@gmail.com" data-label="Email" aria-label="이메일 보내기">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="stroked"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6 9-6"/></svg>
           </a>
-          <!-- 블로그·링크드인이 생기면 아래 형태로 추가하세요
-          <a href="https://velog.io/@아이디" target="_blank" rel="noopener noreferrer" data-label="Blog" aria-label="블로그">
+          <a href="https://devlog.yoonjunseo.com" target="_blank" rel="noopener noreferrer" data-label="devlog" aria-label="블로그">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="stroked"><path d="M5 3.5h9l5 5V20a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 015 20V5a1.5 1.5 0 010-1.5z"/><path d="M13.5 3.5V9h5.5M8.5 13h7M8.5 17h5"/></svg>
-          </a> -->
+          </a>
         </nav>
       </div>
 
-      <!-- ✏️ 핸들도 본인 것으로 -->
       <div class="link-rows">
         <a href="https://github.com/nanjjang" target="_blank" rel="noopener noreferrer">github <span>@nanjjang</span></a>
         <a href="https://instagram.com/emod_.x" target="_blank" rel="noopener noreferrer">instagram <span>@emod_.x</span></a>
         <a href="mailto:loveyjs0420@gmail.com">email <span>loveyjs0420@gmail.com</span></a>
-        <a href="https://uhak-web.vercel.app" target="_blank" rel="noopener noreferrer">live demo <span>우학</span></a>
+        <a href="https://devlog.yoonjunseo.com" target="_blank" rel="noopener noreferrer">devlog <span>devlog.yoonjunseo.com</span></a>
       </div>
     </div>
 
