@@ -51,9 +51,12 @@ const PROJECTS = [
     role: "풀스택",
     span: "2026.01 — 2026.06",
     team: "2인",
-    blurb: "SvelteKit 프론트와 FastAPI 백엔드로 만든 정신건강 관리 서비스. 상담 채팅, 데일리 체크인, 저널, 목표 관리까지 20개가 넘는 화면을 구성했습니다.",
-    tags: ["SvelteKit", "FastAPI", "Python", "SQLite"],
-    links: [{ label: "GitHub", href: "https://github.com/nanjjang/digital_mental_medicalAI" }],
+    blurb: "정신건강 관리 서비스와, 같은 주제를 다룬 연구. 텍스트로 우울·불안 상태를 판별하는 모델을 학술지에 논문으로 실었고 논문대회에서 은상을 받았습니다.",
+    tags: ["SvelteKit", "FastAPI", "RoBERTa", "Python"],
+    links: [
+      { label: "GitHub", href: "https://github.com/nanjjang/digital_mental_medicalAI" },
+      { label: "논문 (DBpia)", href: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12579652" }
+    ],
     sections: [
       {
         kicker: "01 — problem",
@@ -66,11 +69,16 @@ const PROJECTS = [
         body: "SvelteKit(5173)과 FastAPI(8000)를 따로 띄우고 개발 서버에서 /api 를 프록시로 연결했습니다. 백엔드는 api · core · db · models · schemas · services 로 레이어를 나눠, 화면이 늘어나도 서버 구조가 흔들리지 않게 했습니다."
       },
       {
-        kicker: "03 — outcome",
-        title: "온보딩부터 요약까지 하나의 흐름으로",
-        body: "동의 · 온보딩 · 체크인 · 저널 · 목표 · 히스토리 · 요약 · 설정이 각각의 라우트로 구현되어 있습니다. 실행 방법은 README_RUN.md 에 정리해 두어 협업자가 바로 띄울 수 있게 했습니다.",
-        metric: "20+",
-        metricLabel: "구현한 화면 라우트"
+        kicker: "03 — research",
+        title: "자가 보고 대신, 평소에 쓰는 글로",
+        body: "기존 진단은 본인이 스스로 답하는 방식이라 주관이 섞이고 병원 접근성도 걸림돌이었습니다. 온라인 커뮤니티 글을 정상 · 우울증 · 자살 · 불안 네 범주로 두고, 문맥 이해에 강한 RoBERTa-base 위에 문법 통계 같은 수치형 특징을 함께 넣은 하이브리드 구조를 설계했습니다. 고위험군 데이터가 적어 생기는 불균형은 손실 함수에 클래스 가중을 줘서 다뤘습니다."
+      },
+      {
+        kicker: "04 — outcome",
+        title: "서비스에서 논문까지",
+        body: "화면은 동의 · 온보딩 · 체크인 · 저널 · 목표 · 히스토리 · 요약 · 설정이 각각의 라우트로 구현돼 있고, 연구는 「텍스트 데이터 기반 딥러닝을 활용한 우울증 및 정신 건강 상태 판별 연구」로 한국정보기술진흥원 학술지 제3권 제1호에 실렸습니다. 검증에서 높은 Macro F1-score를 기록했고 특히 자살 고위험군 탐지에서 좋은 결과가 나왔습니다.",
+        metric: "은상",
+        metricLabel: "논문대회 · 학술지 게재 (공저 2인)"
       }
     ]
   },
