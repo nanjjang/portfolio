@@ -1,8 +1,8 @@
 /* ─────────────────────────────────────────────────────────────
-   프로젝트 데이터 — github.com/nanjjang 저장소에서 가져왔습니다.
+   프로젝트 데이터 — github.com/nanjjang 저장소에서 확인한 내용입니다.
 
-   내용은 저장소의 코드 구조·설계 문서·커밋 기록에서 확인한 것만 적었습니다.
-   성과 수치(metric)는 확인할 수 없어 비워뒀으니, 아는 값이 있으면 채워주세요.
+   각 저장소의 README · 설계 문서 · 코드 구조 · 커밋 기록에서
+   확인된 사실만 적었습니다. 추측한 성과는 넣지 않았습니다.
 
    카드 하나 = 객체 하나. 복사/삭제로 개수를 조절합니다.
    ───────────────────────────────────────────────────────────── */
@@ -10,6 +10,73 @@
 const PROJECTS = [
   {
     idx: "01",
+    name: "ICE-ZERO",
+    ko: "2026 엔지니어링산업대회 설계부문",
+    year: "2026",
+    role: "모델링 · 파이프라인",
+    span: "2026.05 — 2026.07",
+    team: "2인",
+    blurb: "강남구 도로의 겨울철 결빙 위험을 예측하고, 제한된 제설 예산과 차량 시간 안에서 처리할 도로와 운행 경로를 고르는 엔지니어링 프로토타입입니다.",
+    tags: ["Python", "XGBoost", "GeoJSON", "시뮬레이션"],
+    links: [{ label: "GitHub", href: "https://github.com/Industrial-Engineering-Competition-2026/2026-Engineering-Industry-Contest_dbswnstj" }],
+    sections: [
+      {
+        kicker: "01 — problem",
+        title: "예산은 정해져 있고 도로는 많다",
+        body: "겨울철 결빙은 어디서든 생기지만 제설 차량과 예산은 한정돼 있습니다. '어디가 더 위험한가'를 숫자로 세우지 못하면 우선순위를 정할 근거가 없었습니다."
+      },
+      {
+        kicker: "02 — approach",
+        title: "지면온도를 예측하고, 그 위에서 경로를 짠다",
+        body: "ASOS 실측 지면온도를 정답으로 두고 현재 · +1 · +3 · +6시간 예측 모델을 각각 학습시켰습니다. 태양 고도·방위각과 건물 기하로 시각별 그림자를 계산해 변수로 넣었고, 과거 연도 순차 OOF RMSE로 불확실성을 동결확률에 반영했습니다. 위험 순위가 나오면 예산·시간 제약 아래에서 처리 도로와 경로를 고르는 시뮬레이션을 돌립니다.",
+        metric: "0.963",
+        metricLabel: "동결 PR-AUC (+3시간 예보, 2025년 홀드아웃)"
+      },
+      {
+        kicker: "03 — outcome",
+        title: "할 수 있는 말과 없는 말을 나눠서 쓰기",
+        body: "+3시간 예보 기준 RMSE 1.647°C, Brier 0.0829, FPR 5%에서 재현율 78.0% 를 기록했습니다. 다만 이 수치는 ASOS 지면온도 기준이고 도로×시각 결빙 실측 라벨은 아직 없어서, README에 '도로 결빙 정확도나 사고 감소율로 해석하면 안 된다'고 명시해 뒀습니다."
+      }
+    ]
+  },
+
+  {
+    idx: "02",
+    name: "devlog",
+    ko: "여러 명이 같이 쓰는 블로그 — 직접 운영",
+    year: "2026",
+    role: "개발 · 서버 운영",
+    span: "2026.08 — 진행 중",
+    team: "솔로",
+    blurb: "Astro로 만든 공동 블로그. 맥미니의 Docker 컨테이너에서 돌고 Caddy와 Cloudflare 터널을 거쳐 devlog.yoonjunseo.com 으로 열립니다.",
+    tags: ["Astro", "TypeScript", "SQLite", "Docker", "Caddy"],
+    links: [
+      { label: "GitHub", href: "https://github.com/nanjjang/blog" },
+      { label: "Live", href: "https://devlog.yoonjunseo.com" }
+    ],
+    sections: [
+      {
+        kicker: "01 — problem",
+        title: "남의 서비스에 글을 맡기지 않기",
+        body: "글은 쌓이는데 플랫폼은 언제든 바뀝니다. 데이터와 주소를 직접 쥐고 있는 블로그를 갖고 싶었고, 이왕이면 여러 명이 같이 쓸 수 있게 만들고 싶었습니다."
+      },
+      {
+        kicker: "02 — approach",
+        title: "SQLite 파일 하나 + 요청 시 렌더링",
+        body: "글은 SQLite 파일 하나에 넣고 화면은 요청이 올 때 만듭니다. GitHub 로그인, 노션식 에디터, 태그, 개인 페이지(/@아이디), RSS와 sitemap까지 붙였습니다. 배포 전 설정을 점검하는 preflight 스크립트를 따로 뒀습니다."
+      },
+      {
+        kicker: "03 — outcome",
+        title: "내 집에서 돌아가는 서비스",
+        body: "맥미니 Docker → Caddy → Cloudflare 터널 경로로 실제 도메인에 물려 운영 중입니다. 앞단을 쥐는 서버 설정은 별도 저장소로 관리합니다.",
+        metric: "Live",
+        metricLabel: "devlog.yoonjunseo.com"
+      }
+    ]
+  },
+
+  {
+    idx: "03",
     name: "Digital Mental Care",
     ko: "디지털 정신건강 케어 웹 서비스",
     year: "2026",
@@ -28,9 +95,7 @@ const PROJECTS = [
       {
         kicker: "02 — approach",
         title: "프론트와 백엔드를 완전히 분리",
-        body: "SvelteKit(5173)과 FastAPI(8000)를 따로 띄우고 개발 서버에서 /api 를 프록시로 연결했습니다. 백엔드는 api · core · db · models · schemas · services 로 레이어를 나눠, 화면이 늘어나도 서버 구조가 흔들리지 않게 했습니다.",
-        metric: "",
-        metricLabel: ""
+        body: "SvelteKit(5173)과 FastAPI(8000)를 따로 띄우고 개발 서버에서 /api 를 프록시로 연결했습니다. 백엔드는 api · core · db · models · schemas · services 로 레이어를 나눠, 화면이 늘어나도 서버 구조가 흔들리지 않게 했습니다."
       },
       {
         kicker: "03 — outcome",
@@ -43,37 +108,7 @@ const PROJECTS = [
   },
 
   {
-    idx: "02",
-    name: "Study Agents",
-    ko: "학습 도우미 에이전트 — iOS · Web",
-    year: "2026",
-    role: "개인 프로젝트",
-    span: "2026.04",
-    team: "솔로",
-    blurb: "같은 서비스를 SwiftUI 네이티브 앱과 웹, 두 버전으로 만들었습니다. 백엔드는 Python, 웹 프론트는 TypeScript로 구성했습니다.",
-    tags: ["Swift", "SwiftUI", "TypeScript", "Python"],
-    links: [{ label: "GitHub", href: "https://github.com/nanjjang/StudentsAgent" }],
-    sections: [
-      {
-        kicker: "01 — problem",
-        title: "앱으로 쓸지, 웹으로 쓸지",
-        body: "공부용 도구는 손에 잡히는 앱이 편하지만, 아무 기기에서나 열 수 있는 웹도 필요했습니다. 둘 중 하나를 고르는 대신 양쪽을 다 만들어 보기로 했습니다."
-      },
-      {
-        kicker: "02 — approach",
-        title: "appVersion / webVersion 으로 나눈 저장소",
-        body: "하나의 저장소 안에 Xcode 프로젝트(StudyAgentsApp)와 웹 버전을 나란히 두고, 웹 쪽은 frontend 와 Python 백엔드를 dev.sh 한 번으로 함께 띄우도록 했습니다."
-      },
-      {
-        kicker: "03 — outcome",
-        title: "네이티브와 웹을 같이 다뤄본 경험",
-        body: "SwiftUI의 화면 구성 방식과 웹 프론트의 방식이 어떻게 다른지, 같은 기능을 두 번 만들어 보며 비교할 수 있었습니다."
-      }
-    ]
-  },
-
-  {
-    idx: "03",
+    idx: "04",
     name: "우학 (Uhak)",
     ko: "우리학교 웹 서비스",
     year: "2026",
@@ -108,7 +143,37 @@ const PROJECTS = [
   },
 
   {
-    idx: "04",
+    idx: "05",
+    name: "metroVoca",
+    ko: "지하철 이동시간 단어 학습 앱",
+    year: "2026",
+    role: "기획 · 개발",
+    span: "2026.08 — 진행 중",
+    team: "솔로",
+    blurb: "매일 지하철로 통학하는 사람이 이동 시간에 딱 맞는 분량만 학습하고 끊기지 않게 끝낼 수 있는 앱. React Native로 만들고 있습니다.",
+    tags: ["React Native", "Expo", "TypeScript"],
+    links: [{ label: "GitHub", href: "https://github.com/nanjjang/metroVoca" }],
+    sections: [
+      {
+        kicker: "01 — problem",
+        title: "기존 학습 앱은 책상에 앉은 사람을 가정한다",
+        body: "지하철에서는 언제 내릴지 계속 신경 써야 하고, 손은 하나만 자유롭고, 흔들리고, 구간에 따라 데이터도 끊깁니다. 그런데 대부분의 앱은 무한정 이어지는 학습과 정밀 터치를 전제합니다."
+      },
+      {
+        kicker: "02 — approach",
+        title: "판단 기준을 한 문장으로 고정",
+        body: "PRD를 먼저 쓰고 '내릴 때 찝찝하게 끊기지 않는다'를 핵심 가치로 못 박았습니다. 이후 기능을 넣을지 말지는 전부 이 문장을 기준으로 판단합니다. Must / 그 외로 기능을 나눠 범위를 관리하고 있습니다."
+      },
+      {
+        kicker: "03 — outcome",
+        title: "아직 만드는 중",
+        body: "기획서 v0.1을 쓰고 Expo로 개발을 시작한 단계입니다. 코드보다 '누구의 어떤 상황을 푸는가'를 먼저 적어둔 게 지금까지 가장 도움이 됐습니다."
+      }
+    ]
+  },
+
+  {
+    idx: "06",
     name: "Ability Kirby",
     ko: "정보과학 프로젝트 — 2D 액션 게임",
     year: "2026",
@@ -131,70 +196,10 @@ const PROJECTS = [
       },
       {
         kicker: "03 — outcome",
-        title: "가장 많이 손댄 프로젝트",
-        body: "튜토리얼부터 보스 스테이지까지 설계한 흐름대로 구현했고, 개인 저장소 중 커밋이 가장 많이 쌓인 프로젝트가 됐습니다.",
+        title: "게임에서 시작해 서버로",
+        body: "Unity 3D 액션 게임에서 시작해 이 pygame 프로젝트를 거쳤고, 지금은 백엔드와 서버 운영 쪽을 주로 봅니다. 여기가 그 출발점이었습니다.",
         metric: "17",
         metricLabel: "commits — 개인 저장소 중 최다"
-      }
-    ]
-  },
-
-  {
-    idx: "05",
-    name: "Unfollower Finder",
-    ko: "인스타그램 언팔로워 확인 도구",
-    year: "2026",
-    role: "개인 프로젝트",
-    span: "2026.02 — 2026.06",
-    team: "솔로",
-    blurb: "내가 팔로우하지만 상대는 나를 팔로우하지 않는 계정을 찾아주는 도구. Playwright가 브라우저를 조작해 목록을 모으고 FastAPI가 결과를 계산합니다.",
-    tags: ["Python", "Playwright", "FastAPI"],
-    links: [{ label: "GitHub", href: "https://github.com/nanjjang/instagram_unfollower_finder" }],
-    sections: [
-      {
-        kicker: "01 — problem",
-        title: "공개 API로는 알 수 없는 것",
-        body: "팔로워 · 팔로잉 목록을 정식 API로 받아올 방법이 없어, 화면을 직접 스크롤해 모으는 수밖에 없었습니다."
-      },
-      {
-        kicker: "02 — approach",
-        title: "브라우저 매크로 + 백엔드 계산",
-        body: "Playwright로 크로미움을 띄워 목록을 스크롤 수집하고, 수집한 두 집합의 차집합을 백엔드에서 계산합니다. 설치와 실행은 install.cmd · run_all.cmd 로 묶어 한 줄로 돌아가게 했습니다."
-      },
-      {
-        kicker: "03 — outcome",
-        title: "굳이 배포하지 않기로 한 이유",
-        body: "로그인 정보를 받아야 하는 구조라 클라우드에 올리지 않고 로컬 전용으로 못 박았습니다. README 첫머리에 그 이유와 주의사항을 적어뒀습니다."
-      }
-    ]
-  },
-
-  {
-    idx: "06",
-    name: "Quarter View Action",
-    ko: "3D 쿼터뷰 액션 게임",
-    year: "2025",
-    role: "개인 프로젝트",
-    span: "2025.06",
-    team: "솔로",
-    blurb: "Unity로 만든 쿼터뷰 시점의 3D 액션 게임. 웹을 하기 전에 게임 엔진 쪽에서 먼저 개발을 시작했습니다.",
-    tags: ["Unity", "C#"],
-    links: [{ label: "GitHub", href: "https://github.com/nanjjang/ActionGame_3D_Unity_QuarterView" }],
-    sections: [
-      {
-        kicker: "01 — problem",
-        title: "코드가 화면으로 바로 보이는 일",
-        body: "처음 개발을 시작할 때, 결과가 눈에 바로 보이는 게 게임이었습니다. 이동과 전투를 직접 손으로 만들어 보고 싶었습니다."
-      },
-      {
-        kicker: "02 — approach",
-        title: "Unity로 쿼터뷰 조작 구현",
-        body: "쿼터뷰 시점에 맞춘 이동 · 카메라 · 전투 로직을 C# 스크립트로 작성했습니다."
-      },
-      {
-        kicker: "03 — outcome",
-        title: "여기서 시작해 웹으로",
-        body: "이 프로젝트 이후 pygame, 그리고 웹 풀스택으로 관심이 옮겨갔습니다. 지금 백엔드를 보는 시각의 출발점이 된 작업입니다."
       }
     ]
   }
