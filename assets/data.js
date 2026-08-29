@@ -10,38 +10,6 @@
 const PROJECTS = [
   {
     idx: "01",
-    name: "ICE-ZERO",
-    ko: "2026 엔지니어링산업대회 설계부문",
-    year: "2026",
-    role: "모델링 · 파이프라인",
-    span: "2026.05 — 2026.07",
-    team: "2인",
-    blurb: "강남구 도로의 겨울철 결빙 위험을 예측하고, 제한된 제설 예산과 차량 시간 안에서 처리할 도로와 운행 경로를 고르는 엔지니어링 프로토타입입니다.",
-    tags: ["Python", "XGBoost", "GeoJSON", "시뮬레이션"],
-    links: [{ label: "GitHub", href: "https://github.com/Industrial-Engineering-Competition-2026/2026-Engineering-Industry-Contest_dbswnstj" }],
-    sections: [
-      {
-        kicker: "01 — problem",
-        title: "예산은 정해져 있고 도로는 많다",
-        body: "겨울철 결빙은 어디서든 생기지만 제설 차량과 예산은 한정돼 있습니다. '어디가 더 위험한가'를 숫자로 세우지 못하면 우선순위를 정할 근거가 없었습니다."
-      },
-      {
-        kicker: "02 — approach",
-        title: "지면온도를 예측하고, 그 위에서 경로를 짠다",
-        body: "ASOS 실측 지면온도를 정답으로 두고 현재 · +1 · +3 · +6시간 예측 모델을 각각 학습시켰습니다. 태양 고도·방위각과 건물 기하로 시각별 그림자를 계산해 변수로 넣었고, 과거 연도 순차 OOF RMSE로 불확실성을 동결확률에 반영했습니다. 위험 순위가 나오면 예산·시간 제약 아래에서 처리 도로와 경로를 고르는 시뮬레이션을 돌립니다.",
-        metric: "0.963",
-        metricLabel: "동결 PR-AUC (+3시간 예보, 2025년 홀드아웃)"
-      },
-      {
-        kicker: "03 — outcome",
-        title: "할 수 있는 말과 없는 말을 나눠서 쓰기",
-        body: "+3시간 예보 기준 RMSE 1.647°C, Brier 0.0829, FPR 5%에서 재현율 78.0% 를 기록했습니다. 다만 이 수치는 ASOS 지면온도 기준이고 도로×시각 결빙 실측 라벨은 아직 없어서, README에 '도로 결빙 정확도나 사고 감소율로 해석하면 안 된다'고 명시해 뒀습니다."
-      }
-    ]
-  },
-
-  {
-    idx: "02",
     name: "devlog",
     ko: "여러 명이 같이 쓰는 블로그 — 직접 운영",
     year: "2026",
@@ -76,7 +44,7 @@ const PROJECTS = [
   },
 
   {
-    idx: "03",
+    idx: "02",
     name: "Digital Mental Care",
     ko: "디지털 정신건강 케어 웹 서비스",
     year: "2026",
@@ -108,7 +76,7 @@ const PROJECTS = [
   },
 
   {
-    idx: "04",
+    idx: "03",
     name: "우학 (Uhak)",
     ko: "우리학교 웹 서비스",
     year: "2026",
@@ -143,7 +111,7 @@ const PROJECTS = [
   },
 
   {
-    idx: "05",
+    idx: "04",
     name: "metroVoca",
     ko: "지하철 이동시간 단어 학습 앱",
     year: "2026",
@@ -173,7 +141,7 @@ const PROJECTS = [
   },
 
   {
-    idx: "06",
+    idx: "05",
     name: "Ability Kirby",
     ko: "정보과학 프로젝트 — 2D 액션 게임",
     year: "2026",
